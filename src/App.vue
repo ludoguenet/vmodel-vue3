@@ -1,22 +1,28 @@
 <script setup lang="ts">
-import AddressFieldGroup from "@/components/AddressFieldGroup.vue";
+import {ref} from "vue";
+import InputComponent from "@/components/InputComponent.vue";
+
+const title = ref<string>('Hello World!');
+const description = ref<string>('Description!');
 </script>
 
 <template>
-  <section class="text-gray-600 body-font relative">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-col text-center w-full mb-12">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Adresse de livraison</h1>
-      </div>
+  <section class="grid h-screen place-items-center">
 
-      <AddressFieldGroup />
-    </div>
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-col text-center w-full mb-12">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Adresse de livraison</h1>
-      </div>
+    <div
+      class="text-green-400 text-2xl"
+      v-text="title"
+    />
 
-      <AddressFieldGroup />
-    </div>
+    <div
+      class="text-green-400 text-2xl"
+      v-text="description"
+    />
+
+    <input-component
+        v-model:title="title"
+        v-model:description="description"
+    />
+
   </section>
 </template>
